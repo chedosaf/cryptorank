@@ -3,17 +3,11 @@ import { useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
 
 import fetcher from '@/api/fetcher';
+import { FULL_CURRENCIES_PATH } from '@/api/paths';
 import { StyledMain } from '@/components/Layouts/MainLayout/styles';
 import LoaderSpiner from '@/components/LoaderSpiner';
 import Table from '@/components/Table';
 import formatCurrenciesData from '@/helpers/formatCurrenciesData';
-
-// add ts for SWR
-
-// rewrite with limit / offset and separate this logic from this module
-
-const API =
-  'https://api.cryptorank.io/v1/currencies/?api_key=8374d69a061a9e248d38570af973671c3c8ecca4c11f9461ff4763aa373f&limit=30&offset=0';
 
 const tableHeaderItems = [
   'Name',
@@ -28,18 +22,29 @@ const tableHeaderItems = [
   'HQuotation (6m)',
 ];
 
-const CURRENCIES_PER_PAGE = 10;
+const CURRENCIES_PER_PAGE = 20;
 
 const Watchlist = () => {
-  const { error, isLoading, data } = useSWR(API, fetcher);
+  const [selectedPage, setSelectedPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+
+  const offset = CURRENCIES_PER_PAGE * (selectedPage - 1);
+
+  const fetchParams = new URLSearchParams({
+    limit: CURRENCIES_PER_PAGE.toString(),
+    offset: offset.toString(),
+  });
+
+  const {
+    error,
+    isLoading,
+    data = [],
+  } = useSWR(FULL_CURRENCIES_PATH + fetchParams, fetcher);
 
   const currencies = useMemo(() => {
     if (isLoading) return [];
     return formatCurrenciesData(data.data);
   }, [data, isLoading]);
-
-  const [selectedPage, setSelectedPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     if (!isLoading) {
