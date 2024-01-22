@@ -16,7 +16,7 @@ export const PagesConteiner = styled.nav`
   align-items: center;
   max-width: 100%;
 `;
-
+// add to common styles folder
 export const StyledImage = styled(NextImage)`
   cursor: pointer;
 `;

@@ -1,10 +1,10 @@
-import { ICryptocurrency } from "@/api/types";
+import type { ICurrency, IFCurrency } from "@/api/types";
 
 import calculateHystoryPrice from "./countHQuotation";
 import formatNumber from "./formatNumber";
 
-const formatCurrenciesData = (data: ICryptocurrency[]) => {
-  return data.map((item: ICryptocurrency) => {
+const formatCurrenciesData = (data: ICurrency[]): IFCurrency[] => {
+  return data.map((item) => {
     const currency = {
       id: item.id,
       name: item.name + ' ' + item.symbol,

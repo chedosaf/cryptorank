@@ -1,15 +1,17 @@
 import React from 'react';
 
+import type { IFCurrency } from '@/api/types';
+
 import Pagination from '../PaginationBar/PaginationBar';
 import { StickyTd, StickyTh, StyledTable, Td, Th, Thead, Tr } from './styles';
 
-type Props = {
+interface ITableProps {
   headerItems: string[];
-  currencies?: any[];
+  currencies?: IFCurrency[];
   selectedPage: number;
   setSelectedPage: React.Dispatch<React.SetStateAction<number>>;
   totalPages: number;
-};
+}
 
 const Table = ({
   headerItems,
@@ -17,7 +19,7 @@ const Table = ({
   selectedPage,
   setSelectedPage,
   totalPages,
-}: Props) => {
+}: ITableProps) => {
   return (
     <>
       <StyledTable>

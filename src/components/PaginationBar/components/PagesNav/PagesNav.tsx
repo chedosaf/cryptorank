@@ -67,7 +67,7 @@ const PagesNav = ({
           key={page.toString() + i}
           onClick={() => {
             if (page === '...') return;
-            setSelectedPage(page as number); // do not forget to remove as and add rigth type
+            setSelectedPage(Number(page));
           }}
         >
           {page}

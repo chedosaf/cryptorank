@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { StyledPageButton } from './styles';
 
 interface IPageButtonProps {

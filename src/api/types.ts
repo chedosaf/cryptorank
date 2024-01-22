@@ -1,4 +1,4 @@
-export interface ICryptocurrency {
+export interface ICurrency {
   category: string;
   circulatingSupply: number;
   id: number;
@@ -26,3 +26,17 @@ export interface ICryptocurrency {
   };
   volume24hBase: number;
 }
+
+export interface IFCurrency {
+  id: number;
+  name: string;
+  price: string;
+  circulatingSupply: string;
+  marketCap: string;
+  category: string;
+  '24h': string;
+  '7d': string;
+  '30d': string;
+  '3m': string;
+  '6m': string;
+  }
