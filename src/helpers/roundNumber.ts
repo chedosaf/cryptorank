@@ -1,9 +1,5 @@
 const roundNumber = (value: number, decimalPlace: number = 0) => {
-
-  // change errors 
-  // we can have null as value. add this case
   if (isNaN(value)) {
-     // eslint-disable-next-line no-console
     return ''
   }
 
