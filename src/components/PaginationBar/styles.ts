@@ -1,4 +1,3 @@
-import NextImage from 'next/image';
 import styled from "styled-components";
 
 export const PaginationConteiner = styled.div`
@@ -15,8 +14,4 @@ export const PagesConteiner = styled.nav`
   justify-content: center;
   align-items: center;
   max-width: 100%;
-`;
-// add to common styles folder
-export const StyledImage = styled(NextImage)`
-  cursor: pointer;
 `;

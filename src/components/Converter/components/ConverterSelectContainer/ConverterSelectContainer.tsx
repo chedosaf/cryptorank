@@ -3,6 +3,7 @@ import React from 'react';
 import type { ICurrency } from '@/api/types';
 import CurrencySelect from '@/components/CurrencySelect';
 import NumberInput from '@/components/NumberInput';
+import formatNumber from '@/helpers/formatNumber';
 
 import {
   Amount,
@@ -32,7 +33,7 @@ interface ISelectContainerProps {
   handeleSelect: React.Dispatch<React.SetStateAction<ICurrency | undefined>>;
   setCurrencieAmount: React.Dispatch<React.SetStateAction<number>>;
   currencies: ICurrency[];
-  result?: string;
+  result?: boolean;
 }
 
 const SelectContainer = ({
@@ -48,7 +49,13 @@ const SelectContainer = ({
     <ConverterSelectContainer>
       <ConverterAmountContainer>
         {result ? (
-          <ResultContainer>{result}</ResultContainer>
+          <ResultContainer>{`$ ${formatNumber(
+            currencieAmount *
+              convertCurrencie(
+                initialValue as ICurrency,
+                convertedValue as ICurrency,
+              ),
+          )}`}</ResultContainer>
         ) : (
           <NumberInput
             placeholder='0'

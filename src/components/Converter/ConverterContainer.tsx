@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import type { ICurrency } from '@/api/types';
-import formatNumber from '@/helpers/formatNumber';
 
 import ConvertButton from './components/ConvertButton';
 import SelectContainer from './components/ConverterSelectContainer/ConverterSelectContainer';
@@ -10,21 +9,6 @@ import { ConverterContainer } from './styles';
 interface IConverterProps {
   currencies: ICurrency[];
 }
-
-const convertCurrencie = (from: ICurrency, to: ICurrency) => {
-  const {
-    values: {
-      USD: { price: fromPrice },
-    },
-  } = from;
-  const {
-    values: {
-      USD: { price: toPrice },
-    },
-  } = to;
-  if (!fromPrice || !toPrice) return 0;
-  return toPrice / fromPrice;
-};
 
 const Converter = ({ currencies }: IConverterProps) => {
   const [currencieAmount, setCurrencieAmount] = useState<number>(1);
@@ -59,14 +43,7 @@ const Converter = ({ currencies }: IConverterProps) => {
         handeleSelect={setSelectedCTo}
         setCurrencieAmount={setCurrencieAmount}
         currencies={currencies}
-        // fix as ICurrency
-        result={`$ ${formatNumber(
-          currencieAmount *
-            convertCurrencie(
-              selectedCTo as ICurrency,
-              selectedCFrom as ICurrency,
-            ),
-        )}`}
+        result
       />
     </ConverterContainer>
   );

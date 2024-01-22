@@ -1,6 +1,5 @@
+import StyledImage from '@/components/Image/styles';
 import ConverterIcon from '@/icons/ConverterIcon.svg';
-
-import { StyledImage } from '../../styles';
 
 interface IConvertButtonProps {
   handleClick: () => void;

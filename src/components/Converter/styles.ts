@@ -1,10 +1,5 @@
-import NextImage from 'next/image';
 import styled from "styled-components";
 
-// add to common styles folder
-export const StyledImage = styled(NextImage)`
-  cursor: pointer;
-`;
 
 export const ConverterContainer = styled.div`
   display: flex;

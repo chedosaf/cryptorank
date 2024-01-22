@@ -3,8 +3,9 @@ import React from 'react';
 import LeftArrow from '@/icons/LeftArrow.svg';
 import RightArrow from '@/icons/RightArrow.svg';
 
+import StyledImage from '../Image/styles';
 import PagesNav from './components/PagesNav/PagesNav';
-import { PagesConteiner, PaginationConteiner, StyledImage } from './styles';
+import { PagesConteiner, PaginationConteiner } from './styles';
 
 interface IPaginationProps {
   selectedPage: number;
