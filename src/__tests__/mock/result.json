@@ -1,0 +1,28 @@
+[
+  {
+    "24h": "$ 39.65K",
+    "30d": "$ 37.69K",
+    "3m": "$ 50.07K",
+    "6m": "$ 56.56K",
+    "7d": "$ 38.77K",
+    "category": "Currency",
+    "circulatingSupply": "BTC 19.61M",
+    "id": 1,
+    "marketCap": "$ 796.71B",
+    "name": "Bitcoin BTC",
+    "price": "$ 40.64K"
+  },
+  {
+    "24h": "$ 2.27K",
+    "30d": "$ 2.45K",
+    "3m": "$ 3.19K",
+    "6m": "$ 3.04K",
+    "7d": "$ 2.22K",
+    "category": "Chain",
+    "circulatingSupply": "ETH 120.18M",
+    "id": 3,
+    "marketCap": "$ 285.03B",
+    "name": "Ethereum ETH",
+    "price": "$ 2.37K"
+  }
+]

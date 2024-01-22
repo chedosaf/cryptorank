@@ -1,6 +1,6 @@
 import type { ICurrency, IFCurrency } from "@/api/types";
 
-import calculateHystoryPrice from "./countHQuotation";
+import calculateHystoryPrice from "./calculateHystoryPrice";
 import formatNumber from "./formatNumber";
 
 const formatCurrenciesData = (data: ICurrency[]): IFCurrency[] => {

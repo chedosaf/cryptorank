@@ -4,7 +4,7 @@ const roundNumber = (value: number, decimalPlace: number = 0) => {
   }
 
   if (isNaN(decimalPlace) || decimalPlace < 0) {
-    throw new Error('Invalid decimal places. Please provide a non-negative integer.');
+    throw new Error()
   }
 
   const multiplier = 10 ** decimalPlace;

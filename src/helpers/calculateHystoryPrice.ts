@@ -1,7 +1,5 @@
-// change fnc name
-
 const calculateHystoryPrice = (currentPrice: number, percentageChange: number) => {
-  return currentPrice / (1 + percentageChange / 100);
+  return currentPrice + (currentPrice/100 * percentageChange);
 }
 
 export default calculateHystoryPrice;
