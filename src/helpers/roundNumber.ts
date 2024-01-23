@@ -1,16 +1,22 @@
-const roundNumber = (value: number, decimalPlace: number = 0) => {
-  if (isNaN(value)) {
-    return ''
-  }
+const roundStringNumber = (inputStr: string,) => {
+  if(inputStr === '0') return '0'
+  if(Number(inputStr) % 1 === 0) return inputStr
 
-  if (isNaN(decimalPlace) || decimalPlace < 0) {
-    throw new Error()
-  }
 
-  const multiplier = 10 ** decimalPlace;
-  const roundedValue = Math.round(value * multiplier) / multiplier;
+  const num = parseFloat(inputStr);
 
-  return roundedValue;
+  const decimalPart = inputStr.split(".")[1];
+
+  const nonZeroIndex = decimalPart.search(/[1-9]/);
+
+  const decimalCount = nonZeroIndex !== -1 ? nonZeroIndex + 1 : decimalPart.length;
+
+  const roundedNum = parseFloat(num.toFixed(decimalCount));
+
+  const resultStr = roundedNum.toFixed(decimalCount);
+
+  return resultStr;
+
 }
 
-export default roundNumber;
+export default roundStringNumber;

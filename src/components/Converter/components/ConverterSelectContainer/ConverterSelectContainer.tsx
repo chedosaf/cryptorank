@@ -1,4 +1,5 @@
 import React from 'react';
+import Big from 'big.js';
 
 import type { ICurrency } from '@/api/types';
 import CurrencySelect from '@/components/CurrencySelect';
@@ -23,15 +24,17 @@ const convertCurrencie = (from: ICurrency, to: ICurrency) => {
       USD: { price: toPrice },
     },
   } = to;
-  if (!fromPrice || !toPrice) return 0;
-  return toPrice / fromPrice;
+
+  const bigFrom = new Big(fromPrice);
+  const bigTo = new Big(toPrice);
+  return bigTo.div(bigFrom).toNumber();
 };
 interface ISelectContainerProps {
-  currencieAmount: number;
+  currencieAmount: string;
   initialValue: ICurrency | undefined;
   convertedValue: ICurrency | undefined;
   handeleSelect: React.Dispatch<React.SetStateAction<ICurrency | undefined>>;
-  setCurrencieAmount: React.Dispatch<React.SetStateAction<number>>;
+  setCurrencieAmount: React.Dispatch<React.SetStateAction<string>>;
   currencies: ICurrency[];
   result?: boolean;
 }
@@ -50,11 +53,13 @@ const SelectContainer = ({
       <ConverterAmountContainer>
         {result ? (
           <ResultContainer>{`$ ${formatNumber(
-            currencieAmount *
+            (
+              Number(currencieAmount) *
               convertCurrencie(
                 initialValue as ICurrency,
                 convertedValue as ICurrency,
-              ),
+              )
+            ).toString(),
           )}`}</ResultContainer>
         ) : (
           <NumberInput

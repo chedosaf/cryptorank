@@ -7,10 +7,9 @@
     "symbol": "BTC",
     "category": "Currency",
     "type": "coin",
+    "totalSupply": 1212121,
     "volume24hBase": 248817.2767,
     "circulatingSupply": 19605375,
-    "totalSupply": 21000000,
-    "maxSupply": 21000000,
     "values": {
       "USD": {
         "price": 40637.13818370079,
@@ -37,8 +36,8 @@
     "category": "Chain",
     "type": "coin",
     "volume24hBase": 2013337.4365,
+    "totalSupply": 1212121,
     "circulatingSupply": 120177941,
-    "totalSupply": 120177941,
     "values": {
       "USD": {
         "price": 2371.712414597043,
@@ -46,7 +45,7 @@
         "high24h": 2477.566977235973,
         "low24h": 2358.673695473888,
         "marketCap": 285027514630.41095,
-        "percentChange24h": -4.181,
+        "percentChange24h": 444,
         "percentChange7d": -6.1886,
         "percentChange30d": 3.3514,
         "percentChange3m": 34.4146,

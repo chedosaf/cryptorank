@@ -11,7 +11,7 @@ interface IConverterProps {
 }
 
 const Converter = ({ currencies }: IConverterProps) => {
-  const [currencieAmount, setCurrencieAmount] = useState<number>(1);
+  const [currencieAmount, setCurrencieAmount] = useState<string>('1');
 
   const [selectedCFrom, setSelectedCFrom] = useState<ICurrency | undefined>(
     currencies ? currencies[0] : undefined,

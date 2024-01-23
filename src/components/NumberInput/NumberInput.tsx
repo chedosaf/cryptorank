@@ -4,8 +4,8 @@ import { StyledInput } from './styles';
 
 interface INumberInputProps {
   placeholder: string;
-  value: number;
-  onChange: React.Dispatch<React.SetStateAction<number>>;
+  value: string;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const NumberInput = ({ placeholder, value, onChange }: INumberInputProps) => {
@@ -13,10 +13,11 @@ const NumberInput = ({ placeholder, value, onChange }: INumberInputProps) => {
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     if (isNaN(Number(value))) return;
-    onChange(Number(value));
+    onChange(value);
   };
   return (
     <StyledInput
+      maxLength={20}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}

@@ -8,41 +8,66 @@ const formatCurrenciesData = (data: ICurrency[]): IFCurrency[] => {
     const currency = {
       id: item.id,
       name: item.name + ' ' + item.symbol,
-      price: `$ ${formatNumber(item.values?.USD.price)}`,
+      price: formatNumber(item.values?.USD.price?.toString()) ? `$ ${formatNumber(item.values?.USD.price?.toString())}` : '',
       circulatingSupply:
-        item.symbol + ' ' + formatNumber(item.circulatingSupply),
-      marketCap: `$ ${formatNumber(item.values?.USD.marketCap)}`,
+        item.symbol + ' ' + formatNumber(item.circulatingSupply?.toString()),
+      marketCap: formatNumber(item.values?.USD.marketCap?.toString()) ? `$ ${formatNumber(item.values?.USD.marketCap?.toString())}` : '',
       category: item.category,
-      '24h': `$ ${formatNumber(
+      '24h': formatNumber(
         calculateHystoryPrice(
-          item.values?.USD.price,
-          item.values?.USD.percentChange24h,
+          item.values?.USD.price?.toString() ,
+          item.values?.USD.percentChange24h?.toString(),
         ),
-      )}`,
-      '7d': `$ ${formatNumber(
+      ) ? `$ ${formatNumber(
         calculateHystoryPrice(
-          item.values?.USD.price,
-          item.values?.USD.percentChange7d,
+          item.values?.USD.price?.toString() ,
+          item.values?.USD.percentChange24h?.toString(),
         ),
-      )}`,
-      '30d': `$ ${formatNumber(
+      )}` : '',
+      '7d': formatNumber(
         calculateHystoryPrice(
-          item.values?.USD.price,
-          item.values?.USD.percentChange30d,
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange7d?.toString(),
         ),
-      )}`,
-      '3m': `$ ${formatNumber(
+      ) ? `$ ${formatNumber(
         calculateHystoryPrice(
-          item.values?.USD.price,
-          item.values?.USD.percentChange3m,
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange7d?.toString(),
         ),
-      )}`,
-      '6m': `$ ${formatNumber(
+      )}` : '',
+      '30d': formatNumber(
         calculateHystoryPrice(
-          item.values?.USD.price,
-          item.values?.USD.percentChange6m,
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange30d?.toString(),
         ),
-      )}`,
+      ) ? `$ ${formatNumber(
+        calculateHystoryPrice(
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange30d?.toString(),
+        ),
+      )}` : '',
+      '3m': formatNumber(
+        calculateHystoryPrice(
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange3m?.toString(),
+        ),
+      ) ? `$ ${formatNumber(
+        calculateHystoryPrice(
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange3m?.toString(),
+        ),
+      )}` : '',
+      '6m': formatNumber(
+        calculateHystoryPrice(
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange3m?.toString(),
+        ),
+      ) ?`$ ${formatNumber(
+        calculateHystoryPrice(
+          item.values?.USD.price?.toString(),
+          item.values?.USD.percentChange6m?.toString(),
+        ),
+      )}` : '',
     };
     return currency;
   })
