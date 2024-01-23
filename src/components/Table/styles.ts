@@ -13,15 +13,12 @@ export const Thead = styled.thead`
   background: #eef4fa;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
 `;
 
 export const Tr = styled.tr`
   width: 100%;
   height: 60px;
-  &:hover {
-    background: #fafcfd;
-  }
 `;
 
 export const Th = styled.th`
@@ -35,6 +32,7 @@ export const StickyTh = styled(Th)`
   left: -1%;
   min-width: 152px;
   white-space: normal;
+  background: #eef4fa;
   z-index: 10;
 `;
 
